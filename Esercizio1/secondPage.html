@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seconda pagina</title>
+</head>
+<body>
+    <h1>Tabella</h1>
+</body>
+<script>
+    const table = document.createElement("table")
+    const tbody = document.createElement("tbody")
+
+    const url = new URLSearchParams(window.location.search)
+    
+    const m = url.get("m")
+    const n = url.get("n")
+
+    if(m !== "" && n !== ""){
+    for(let i = 0; i < m; i++){
+        const riga = document.createElement("tr")
+
+        for(let j = 0; j < n; j++){
+            const cella = document.createElement("td");
+            const contenutoCella = document.createTextNode(Math.random(5)*10)
+            cella.appendChild(contenutoCella)
+            riga.appendChild(cella)
+        }
+        tbody.appendChild(riga)
+    }
+
+    table.appendChild(tbody)
+    document.body.appendChild(table)
+    table.setAttribute("border", "3")
+}else{
+    for(let i = 0; i < 2; i++){
+        const riga = document.createElement("tr")
+
+        for(let j = 0; j < 2; j++){
+            const cella = document.createElement("td");
+            const contenutoCella = document.createTextNode(Math.random(5)*10)
+            cella.appendChild(contenutoCella)
+            riga.appendChild(cella)
+        }
+        tbody.appendChild(riga)
+    }
+
+    table.appendChild(tbody)
+    document.body.appendChild(table)
+    table.setAttribute("border", "3")
+}
+    </script>
+</html>

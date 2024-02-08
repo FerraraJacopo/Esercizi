@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione</title>
+</head>
+<body>
+        <h1 id="title"></h1>
+        <input type="text" id="user" placeholder="Username">
+        <input type="password" id="pwd" placeholder="Password">
+        <input type="submit" value="Accedi" id="submit">
+    <script>
+
+        submit.addEventListener("click", convalida)
+
+        function convalida(){
+            let user = document.getElementById("user")
+            let pwd = document.getElementById("pwd")
+            let submit = document.getElementById("submit")
+            let length = localStorage.length;
+            var utente = { user: user.value, password: pwd.value };
+            if(controlloStorage(utente) == false){
+                localStorage.setItem(user.value, JSON.stringify(utente));
+            }else{
+                h1 = document.getElementById("title")
+                h1.innerHTML = "nome utente già in uso"
+            }
+        }
+
+
+        function controlloStorage(utente){
+            for(let i = 0; i < localStorage.length; i++){
+                if(localStorage.getItem(localStorage.key(i)) === JSON.stringify(utente)){
+                    return true;
+                }
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

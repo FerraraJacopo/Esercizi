@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="m" placeholder="Righe">
+    <input type="number" id="n" placeholder="Colonne">
+    <input type="submit" value="invia" id="submit">
+    <script>
+            let submit = document.getElementById("submit")
+
+            submit.addEventListener("click", convalida)
+
+
+            function convalida(){
+                let m = document.getElementById("m").value
+                let n = document.getElementById("n").value
+                window.location.href = "file:///C:/Users/ferj9/OneDrive/Desktop/Scuola/Esercizi%20JS%20-%2008_02/Esercizio1/secondPage.html" + "?m=" + encodeURIComponent(m) + "&n=" + encodeURIComponent(n)
+            }
+
+    </script>
+
+</body>
+</html>

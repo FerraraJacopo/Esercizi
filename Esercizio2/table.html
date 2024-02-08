@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generazione tabella</title>
+</head>
+<body>
+    <script>
+         const table = document.createElement("table")
+         const tbody = document.createElement("tbody")
+
+
+         const myArray = JSON.parse(localStorage.getItem("utente"));
+
+
+         for(let i = 0; i < myArray.length; i++){
+            const riga = document.createElement("tr")
+        for(let j = 0; j < 2; j++){
+            const cella = document.createElement("td");
+            let contenutoCella;
+            if(j == 0){
+                contenutoCella = document.createTextNode(myArray[i].nome)
+            }else{
+                contenutoCella = document.createTextNode(myArray[i].prezzo)
+            }
+            cella.appendChild(contenutoCella)
+            riga.appendChild(cella)
+        }
+        tbody.appendChild(riga)
+        }
+
+    table.appendChild(tbody)
+    document.body.appendChild(table)
+    table.setAttribute("border", "3")
+    </script>
+</body>
+</html>

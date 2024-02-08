@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+        <h1 id="title"></h1>
+        <input type="text" id="user" placeholder="Username">
+        <input type="password" id="pwd" placeholder="Password">
+        <input type="submit" value="Accedi" id="submit">
+    <script>
+
+    
+
+        window.onload = function(){        
+            if (sessionStorage.getItem("loggato") === "true") {
+                window.location.replace("file:///C:/Users/ferj9/OneDrive/Desktop/Scuola/Esercizi%20JS%20-%2008_02/Esercizio3/areaPrivata.html" + "?nomeUtente=");
+            }
+        }
+
+        submit.addEventListener("click", convalida)
+
+        function convalida(){
+            let user = document.getElementById("user")
+            let pwd = document.getElementById("pwd")
+            let submit = document.getElementById("submit")
+            var utente = { user: user.value, password: pwd.value};
+            if(controlloStorage(utente) == true){   
+                setTimeout(redirect,2000)
+                function redirect(){
+                sessionStorage.setItem("loggato", "true")
+                window.location.replace("file:///C:/Users/ferj9/OneDrive/Desktop/Scuola/Esercizi%20JS%20-%2008_02/Esercizio3/areaPrivata.html" + "?nomeUtente=" + encodeURIComponent(user.value));
+                }
+            }else{
+                h1 = document.getElementById("title")
+                h1.innerHTML = "errore nel login"
+            }
+        }
+
+
+        
+        function controlloStorage(utente){
+            for(let i = 0; i < localStorage.length; i++){
+                if(localStorage.getItem(localStorage.key(i)) === JSON.stringify(utente)){
+                    return true;
+                }
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

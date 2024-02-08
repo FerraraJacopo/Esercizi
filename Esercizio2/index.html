@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webapp</title>
+    <h1>Invio oggetti</h1>
+    <input type="submit" value="Invia" id="submit">
+</head>
+<body>
+    <script>
+        submit.addEventListener("click", convalida)
+
+        function convalida(){
+        var p1 = { nome: "p1", prezzo: 30 };
+        var p2 = { nome: "p2", prezzo: 25 };
+        var p3 = { nome: "p3", prezzo: 13 };
+        var p4 = { nome: "p4", prezzo: 5 };
+        let array = [p1, p2, p3, p4]
+        localStorage.setItem("utente", JSON.stringify(array));
+        window.location.replace("file:///C:/Users/ferj9/OneDrive/Desktop/Scuola/Esercizi%20JS%20-%2008_02/Esercizio2/table.html")
+        }    
+    </script>
+</body>
+</html>
